@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">Where in the world?</div>
+                <button onclick="App.toggleDarkMode()">Dark Mode</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container main-section">
+        <div class="filter-section">
+            <div class="input-element">
+                <input type="text" placeholder="Search for a country..." class="input-search" onkeyup="App.searchCountries()">
+                <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px">
+                    <path
+                        d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
+                </svg>
+            </div>
+
+            <select name="regions" id="regions" onchange="App.changeRegion()">
+                <option value="All">All</option>
+                <option value="Europe">Europe</option>
+                <option value="Africa">Africa</option>
+                <option value="Oceania">Oceania</option>
+                <option value="Americas">America</option>
+                <option value="Asia">Asia</option>
+            </select>
+        </div>
+        <div class="countries">
+            Loading...
+        </div>
+    </section>
+
+    <section class="container">
+
+        <div class="single-country-page hide">
+            <button class="button navigate-back" onclick="App.closeSingleCountry()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z">
+                    </path>
+                </svg>
+                <span>Back</span>
+            </button>
+            <div class="single-country">
+                <img src="https://flagcdn.com/bg.svg" alt="">
+                <div class="single-country-info">
+                    <h1 class="title">Bulgaria</h1>
+                    <div class="country-details">
+                        <p class="detail"><span>Native Name:</span></p>
+                        <p class="detail"><span>Population:</span></p>
+                        <p class="detail"><span>Region:</span></p>
+                        <p class="detail"><span>Sub Region:</span></p>
+                        <p class="detail"><span>Capital:</span></p>
+                        <p class="detail"><span>Top Level Domain:</span></p>
+                        <p class="detail"><span>Currencies:</span></p>
+                        <p class="detail"><span>Langueges:</span></p>
+                    </div>
+                    <div class="country-borders">
+                        <span>Border Countries:</span>
+                        <button onclick="App.openSingleCountry('France')">France</button>
+                        <button>Germany</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
