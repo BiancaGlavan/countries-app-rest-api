@@ -1,7 +1,7 @@
 # Frontend Mentor - REST Countries API with color theme switcher solution
 
 ### Links
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://classy-dodol-d386de.netlify.app/](https://classy-dodol-d386de.netlify.app/)
 
 ### Screenshot
 
