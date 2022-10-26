@@ -11,12 +11,14 @@ body {
     --main-background: hsl(0, 0%, 98%);
     --text-color: hsl(200, 15%, 8%);
     --text-color-secondary: hsl(0, 1%, 35%);
+    --svg-color: hsl(200, 15%, 8%);
 
     &.dark {
         --item-background: hsl(209, 23%, 22%);
         --main-background: hsl(207, 26%, 17%);
         --text-color: hsl(0, 0%, 100%);
         --text-color-secondary: hsl(0, 0%, 52%);
+        --svg-color: hsl(0, 0%, 98%);
     }
 }
 
@@ -77,29 +79,39 @@ nav {
         position: relative;
 
         .input-search {
-            padding: 10px;
+            padding: 15px;
             padding-left: 60px;
             min-width: 300px;
             border: none;
             outline: none;
             border-radius: 4px;
+            background-color: var(--item-background);
+            color: var(--text-color);
+
         }
 
         svg {
             position: absolute;
             width: 20px;
             height: 20px;
-            left: 7px;
-            top: 9px;
+            left: 15px;
+            top: calc(50% - 10px);
+            fill: var(--text-color);
         }
     }
 
     select {
         width: 130px;
-        padding: 8px;
+        padding: 14px;
         border: none;
         outline: none;
+        border-radius: 4px;
+        background: var(--item-background);
+        color: var(--text-color);
 
+        option {
+            padding: 15px;
+        }
     }
 }
 
@@ -110,13 +122,13 @@ nav {
     gap: 20px;
 
     .country {
-        width: 220px;
+        width: 250px;
         background-color: var(--item-background);
         flex-shrink: 0;
         cursor: pointer;
         overflow: hidden;
         border-radius: 4px;
-        // margin: 20px;
+    
 
         .country-image {
             width: 100%;
@@ -137,6 +149,7 @@ nav {
                 font-size: 17px;
                 font-weight: 700;
                 color: var(--text-color);
+                margin-bottom: 10px;
             }
 
             .info-text {
@@ -160,6 +173,7 @@ nav {
 }
 
 .single-country-page {
+    margin-bottom: 150px;
 
     .navigate-back {
         margin-top: 30px;
@@ -175,12 +189,16 @@ nav {
         color: var(--text-color);
         font-weight: 500;
         width: 100px;
-        box-shadow: 0 0 5px 2px var(--text-color-secondary);
+        box-shadow: 0 0 2px 1px var(--text-color-secondary);
 
         svg {
             width: 15px;
             height: 15px;
             margin-right: 5px;
+
+            path {
+                fill: var(--svg-color);
+            }
         }
 
     }
@@ -225,7 +243,7 @@ nav {
         display: flex;
         align-items: center;
 
-        span {
+        h3 {
             font-weight: 500;
             font-size: 15px;
             color: var(--text-color);
@@ -239,8 +257,114 @@ nav {
             margin-right: 20px;
             border: none;
             outline: none;
-            box-shadow: 0 0 5px 2px var(--text-color-secondary);
+            box-shadow: 0 0 2px 1px var(--text-color-secondary);
             cursor: pointer;
         }
     }
 }
+
+
+@media screen and (max-width: 1025px) {
+    .single-country {
+        display: flex;
+        flex-direction: column;
+
+        .single-country-info {
+            margin-left: 0;
+            width: 100%;
+            max-width: 600px;
+
+            h1 {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        }
+        
+        img {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .country-borders {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }    
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .nav-container {
+        width: 100%;
+    }
+
+    .filter-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .input-element {
+            width: 100%;
+
+            .input-search {
+                width: 100%;
+                max-width: 100%;
+                min-width: 100px;
+            }
+        }
+
+       
+
+        select {
+            margin-top: 20px;
+            
+        }
+    }
+
+    .single-country {
+        display: flex;
+        flex-direction: column;
+
+        img {
+            width: 100%;
+        }
+
+        .single-country-info {
+            display: flex;
+            flex-direction: column;
+            margin-left: 0;
+
+            h1 {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .country-details {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                max-height: 100%;
+
+                .detail {
+                    width: 100%;
+                }
+            }
+
+            .country-borders {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                h3 {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+
+                button {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+

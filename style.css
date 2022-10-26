@@ -10,12 +10,14 @@ body {
   --main-background: hsl(0, 0%, 98%);
   --text-color: hsl(200, 15%, 8%);
   --text-color-secondary: hsl(0, 1%, 35%);
+  --svg-color: hsl(200, 15%, 8%);
 }
 body.dark {
   --item-background: hsl(209, 23%, 22%);
   --main-background: hsl(207, 26%, 17%);
   --text-color: hsl(0, 0%, 100%);
   --text-color-secondary: hsl(0, 0%, 52%);
+  --svg-color: hsl(0, 0%, 98%);
 }
 
 body {
@@ -70,25 +72,34 @@ nav {
   position: relative;
 }
 .filter-section .input-element .input-search {
-  padding: 10px;
+  padding: 15px;
   padding-left: 60px;
   min-width: 300px;
   border: none;
   outline: none;
   border-radius: 4px;
+  background-color: var(--item-background);
+  color: var(--text-color);
 }
 .filter-section .input-element svg {
   position: absolute;
   width: 20px;
   height: 20px;
-  left: 7px;
-  top: 9px;
+  left: 15px;
+  top: calc(50% - 10px);
+  fill: var(--text-color);
 }
 .filter-section select {
   width: 130px;
-  padding: 8px;
+  padding: 14px;
   border: none;
   outline: none;
+  border-radius: 4px;
+  background: var(--item-background);
+  color: var(--text-color);
+}
+.filter-section select option {
+  padding: 15px;
 }
 
 .countries {
@@ -98,7 +109,7 @@ nav {
   gap: 20px;
 }
 .countries .country {
-  width: 220px;
+  width: 250px;
   background-color: var(--item-background);
   flex-shrink: 0;
   cursor: pointer;
@@ -122,6 +133,7 @@ nav {
   font-size: 17px;
   font-weight: 700;
   color: var(--text-color);
+  margin-bottom: 10px;
 }
 .countries .country .info .info-text {
   font-size: 15px;
@@ -137,6 +149,9 @@ nav {
   display: none;
 }
 
+.single-country-page {
+  margin-bottom: 150px;
+}
 .single-country-page .navigate-back {
   margin-top: 30px;
   display: flex;
@@ -151,12 +166,15 @@ nav {
   color: var(--text-color);
   font-weight: 500;
   width: 100px;
-  box-shadow: 0 0 5px 2px var(--text-color-secondary);
+  box-shadow: 0 0 2px 1px var(--text-color-secondary);
 }
 .single-country-page .navigate-back svg {
   width: 15px;
   height: 15px;
   margin-right: 5px;
+}
+.single-country-page .navigate-back svg path {
+  fill: var(--svg-color);
 }
 
 .single-country {
@@ -192,7 +210,7 @@ nav {
   display: flex;
   align-items: center;
 }
-.single-country .country-borders span {
+.single-country .country-borders h3 {
   font-weight: 500;
   font-size: 15px;
   color: var(--text-color);
@@ -205,6 +223,89 @@ nav {
   margin-right: 20px;
   border: none;
   outline: none;
-  box-shadow: 0 0 5px 2px var(--text-color-secondary);
+  box-shadow: 0 0 2px 1px var(--text-color-secondary);
   cursor: pointer;
+}
+
+@media screen and (max-width: 1025px) {
+  .single-country {
+    display: flex;
+    flex-direction: column;
+  }
+  .single-country .single-country-info {
+    margin-left: 0;
+    width: 100%;
+    max-width: 600px;
+  }
+  .single-country .single-country-info h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .single-country img {
+    width: 100%;
+    max-width: 600px;
+  }
+  .single-country .country-borders {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 580px) {
+  .nav-container {
+    width: 100%;
+  }
+  .filter-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .filter-section .input-element {
+    width: 100%;
+  }
+  .filter-section .input-element .input-search {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100px;
+  }
+  .filter-section select {
+    margin-top: 20px;
+  }
+  .single-country {
+    display: flex;
+    flex-direction: column;
+  }
+  .single-country img {
+    width: 100%;
+  }
+  .single-country .single-country-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+  }
+  .single-country .single-country-info h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .single-country .single-country-info .country-details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-height: 100%;
+  }
+  .single-country .single-country-info .country-details .detail {
+    width: 100%;
+  }
+  .single-country .single-country-info .country-borders {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .single-country .single-country-info .country-borders h3 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .single-country .single-country-info .country-borders button {
+    margin-bottom: 10px;
+  }
 }/*# sourceMappingURL=style.css.map */

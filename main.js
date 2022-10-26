@@ -61,7 +61,7 @@ const App = {
                     <p class="detail"><span>Languages:</span> ${Object.values(country.languages).join(', ')}</p>
                 </div>
                 <div class="country-borders">
-                    <span>Border Countries:</span>
+                    <h3>Border Countries:</h3>
                     ${borderButtons}
                 </div>
             </div>
@@ -133,6 +133,10 @@ const App = {
         // print the countries in the main container
 
         App.fetchCountries();
+
+        searchInput.addEventListener("keyup", (e) => {
+          App.searchCountries();
+        });
     }
 }
 
